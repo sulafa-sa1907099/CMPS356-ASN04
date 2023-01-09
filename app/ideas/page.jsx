@@ -1,13 +1,11 @@
 "use client"
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
-import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import CancelIcon from '@mui/icons-material/Cancel';
 import SaveIcon from '@mui/icons-material/Save';
-import getIdentifier from '../../pages/api/identifier';
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import { userStore } from '../../stores/UserStore';
@@ -26,19 +24,7 @@ export default function Ideas() {
         if (!user)
             axios.get("http://localhost:3000/api/identifier").then(res => setUser(res.data))
 
-
-
     }, []);
-
-    useEffect(() => {
-
-
-        window.localStorage.setItem('ideas', JSON.stringify(user));
-
-
-    }, [user]);
-
-
 
 
     function handleOpen() {
