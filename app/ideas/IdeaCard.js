@@ -10,10 +10,11 @@ import axios from "axios";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function IdeaCard({ user }) {
-    const ideas = useQuery(['ideas', user], () => axios.get(`https://sulafa1907099-asn04-8fj6eblsk-sulafa-sa1907099.vercel.app/api/${user}/ideas`))
+    const port = env.port
+    const ideas = useQuery(['ideas', user], () => axios.get(`api.vercel.com/${user}/ideas`))
     const queryClient = useQueryClient()
 
-    const ideasDeleteMutation = useMutation((id) => axios.delete(`https://sulafa1907099-asn04-8fj6eblsk-sulafa-sa1907099.vercel.app/api/${user}/ideas?id=${id}`),
+    const ideasDeleteMutation = useMutation((id) => axios.delete(`api.vercel.com/${user}/ideas?id=${id}`),
         {
             onSuccess: () => {
                 queryClient.invalidateQueries("ideas")
