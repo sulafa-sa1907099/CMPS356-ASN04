@@ -22,7 +22,7 @@ export default function Ideas() {
 
     useEffect(() => {
         if (!user)
-            axios.get("sulafa1907099-asn04-39ar740ud-sulafa-sa1907099/identifier").then(res => setUser(res.data))
+            axios.get("sulafa1907099-asn04-39ar740ud-sulafa-sa1907099/api/identifier").then(res => setUser(res.data))
 
     }, []);
 
@@ -45,7 +45,7 @@ export default function Ideas() {
         setDesc(e.target.value)
     }
     const queryClient = useQueryClient()
-    const ideasAddMutation = useMutation((idea) => axios.post(`sulafa1907099-asn04-39ar740ud-sulafa-sa1907099/${user}/ideas`, idea),
+    const ideasAddMutation = useMutation((idea) => axios.post(`sulafa1907099-asn04-39ar740ud-sulafa-sa1907099/api/${user}/ideas`, idea),
     {
         onSuccess: () => {
             queryClient.invalidateQueries("ideas")
