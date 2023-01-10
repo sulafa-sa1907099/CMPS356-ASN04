@@ -12,7 +12,7 @@ import { userStore } from '../../stores/UserStore';
 import { useQuery, useMutation, useQueryClient } from "react-query"
 import IdeaCard from './IdeaCard';
 
-
+//HELLO
 export default function Ideas() {
     const setUser = userStore(state => state.setUser)
     const user = userStore(state => state.user)
