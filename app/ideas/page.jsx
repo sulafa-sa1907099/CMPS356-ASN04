@@ -22,7 +22,7 @@ export default function Ideas() {
 
     useEffect(() => {
         if (!user)
-            axios.get("https://sulafa1907099-asn04-g7x8c4bw8-sulafa-sa1907099.vercel.app/api/identifier").then(res => setUser(res.data))
+            axios.get("https://sulafa1907099-asn04.vercel.app/api/identifier").then(res => setUser(res.data))
 
     }, []);
 
@@ -45,7 +45,7 @@ export default function Ideas() {
         setDesc(e.target.value)
     }
     const queryClient = useQueryClient()
-    const ideasAddMutation = useMutation((idea) => axios.post(`https://sulafa1907099-asn04-g7x8c4bw8-sulafa-sa1907099.vercel.app/api/${user}/ideas`, idea),
+    const ideasAddMutation = useMutation((idea) => axios.post(`https://sulafa1907099-asn04.vercel.app/api/${user}/ideas`, idea),
     {
         onSuccess: () => {
             queryClient.invalidateQueries("ideas")
